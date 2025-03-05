@@ -17,7 +17,7 @@
     }
     setTheme();
   </script>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>John Anderson - Full Stack Developer</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -64,6 +64,51 @@
     .social-icon:hover {
       transform: translateY(-2px);
     }
+
+    /* Responsive text sizes */
+    @media (max-width: 640px) {
+      h1 {
+        font-size: 2.5rem !important;
+      }
+
+      h2 {
+        font-size: 2rem !important;
+      }
+
+      h3 {
+        font-size: 1.5rem !important;
+      }
+
+      p {
+        font-size: 1rem !important;
+      }
+    }
+
+    /* Custom scrollbar for desktop */
+    @media (min-width: 768px) {
+      ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: rgba(0, 0, 0, 0.1);
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: rgba(14, 165, 233, 0.5);
+        border-radius: 4px;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background: rgba(14, 165, 233, 0.7);
+      }
+    }
+
+    /* Prevent horizontal scroll on mobile */
+    .overflow-x-hidden {
+      overflow-x: hidden;
+    }
   </style>
 </head>
 
@@ -76,15 +121,26 @@
   </button>
   <nav
     class="fixed top-0 left-0 right-0 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md z-50 border-b border-gray-200 dark:border-gray-800">
-    <div class="max-w-7xl mx-auto px-6">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <div class="flex items-center justify-between h-16">
         <div class="text-2xl font-bold text-primary">AC</div>
-        <div class="flex items-center space-x-8">
+        <div class="hidden md:flex items-center space-x-8">
           <a href="#home" class="text-gray-300 hover:text-primary transition-colors">Home</a>
           <a href="#skills" class="text-gray-300 hover:text-primary transition-colors">Skills</a>
           <a href="#projects" class="text-gray-300 hover:text-primary transition-colors">Projects</a>
           <a href="#contact" class="text-gray-300 hover:text-primary transition-colors">Contact</a>
         </div>
+        <button class="md:hidden w-10 h-10 flex items-center justify-center" id="mobileMenuButton">
+          <i class="ri-menu-line text-2xl text-gray-300"></i>
+        </button>
+      </div>
+    </div>
+    <div class="hidden md:hidden bg-gray-900 border-b border-gray-800" id="mobileMenu">
+      <div class="px-4 py-2 space-y-2">
+        <a href="#home" class="block text-gray-300 hover:text-primary transition-colors py-2">Home</a>
+        <a href="#skills" class="block text-gray-300 hover:text-primary transition-colors py-2">Skills</a>
+        <a href="#projects" class="block text-gray-300 hover:text-primary transition-colors py-2">Projects</a>
+        <a href="#contact" class="block text-gray-300 hover:text-primary transition-colors py-2">Contact</a>
       </div>
     </div>
   </nav>
@@ -92,9 +148,9 @@
     <div
       class="absolute inset-0 bg-[url('https://public.readdy.ai/ai/img_res/b7f5922b87412552940dadfe84bf0031.jpg')] bg-cover opacity-10">
     </div>
-    <div class="max-w-7xl mx-auto px-6 relative">
-      <div class="grid grid-cols-12 gap-12 items-center">
-        <div class="col-span-7">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 relative">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center">
+        <div class="col-span-1 md:col-span-7">
           <h1 class="text-5xl font-bold mb-6">Hi, I'm Asher T Chiwashira</h1>
           <h2 class="text-2xl text-gray-400 mb-8">
             Full Stack Developer & DevOps Engineer
@@ -116,9 +172,9 @@
             </button>
           </div>
         </div>
-        <div class="col-span-5">
+        <div class="col-span-1 md:col-span-5">
           <img src="https://public.readdy.ai/ai/img_res/4f29da1e7936044771726c162dfeec73.jpg" alt="John Anderson"
-            class="w-full h-auto rounded-full shadow-2xl" />
+            class="w-3/4 mx-auto md:w-full h-auto rounded-full shadow-2xl" />
         </div>
       </div>
     </div>
@@ -128,7 +184,7 @@
       <h2 class="text-3xl font-bold mb-16 text-center">
         Technical Expertise
       </h2>
-      <div class="grid grid-cols-4 gap-8">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
         <div
           class="bg-gray-800 p-8 rounded-lg shadow-sm border border-gray-700 transition-all duration-300 hover:bg-gray-700 hover:border-primary hover:scale-105 hover:shadow-xl">
           <div
@@ -223,7 +279,7 @@
   <section id="projects" class="py-20">
     <div class="max-w-7xl mx-auto px-6">
       <h2 class="text-3xl font-bold mb-16 text-center">Featured Projects</h2>
-      <div class="grid grid-cols-2 gap-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div class="group relative rounded-lg overflow-hidden shadow-sm">
           <img src="https://public.readdy.ai/ai/img_res/20757ad35c3890b3f59810233708f8ac.jpg" alt="Project 1"
             class="w-full h-[300px] object-cover" />
@@ -277,7 +333,7 @@
       <h2 class="text-3xl font-bold mb-16 text-center">
         Additional Technical Knowledge
       </h2>
-      <div class="grid grid-cols-3 gap-8">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         <div
           class="bg-gray-800/60 backdrop-blur-sm p-8 rounded-lg shadow-sm border border-gray-700/50 hover:bg-gray-700/70 transition-all duration-300">
           <div class="w-12 h-12 flex items-center justify-center bg-primary/10 rounded-lg mb-6">
@@ -645,9 +701,9 @@
     </style>
     <div class="max-w-7xl mx-auto px-6">
       <h2 class="text-3xl font-bold mb-16 text-center">Get in Touch</h2>
-      <div class="grid grid-cols-2 gap-12">
-        <div class="bg-gray-800 p-8 rounded-lg shadow-sm border border-gray-700">
-          <form id="contactForm" class="space-y-6">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+        <div class="bg-gray-800 p-6 lg:p-8 rounded-lg shadow-sm border border-gray-700">
+          <form id="contactForm" class="space-y-4 lg:space-y-6">
             <div>
               <label class="block text-sm font-medium text-gray-300 mb-2">Name</label>
               <input type="text"
@@ -672,9 +728,9 @@
             </button>
           </form>
         </div>
-        <div class="bg-gray-800 p-8 rounded-lg shadow-sm border border-gray-700">
-          <h3 class="text-xl font-semibold mb-6">Connect With Me</h3>
-          <div class="space-y-6">
+        <div class="bg-gray-800 p-6 lg:p-8 rounded-lg shadow-sm border border-gray-700">
+          <h3 class="text-xl font-semibold mb-4 lg:mb-6">Connect With Me</h3>
+          <div class="space-y-4 lg:space-y-6">
             <div class="flex items-center">
               <div class="w-10 h-10 flex items-center justify-center bg-primary/10 rounded-lg mr-4">
                 <i class="ri-mail-line text-primary"></i>
@@ -693,7 +749,7 @@
                 <div class="font-medium">San Francisco, CA</div>
               </div>
             </div>
-            <div class="flex items-center space-x-4 mt-8">
+            <div class="flex items-center space-x-4 mt-6 lg:mt-8">
               <a href="#"
                 class="w-10 h-10 flex items-center justify-center bg-primary/10 rounded-lg hover:bg-primary/20 transition-colors">
                 <i class="ri-linkedin-fill text-primary"></i>
@@ -705,6 +761,18 @@
               <a href="#"
                 class="w-10 h-10 flex items-center justify-center bg-primary/10 rounded-lg hover:bg-primary/20 transition-colors">
                 <i class="ri-twitter-fill text-primary"></i>
+              </a>
+              <a href="#"
+                class="w-10 h-10 flex items-center justify-center bg-primary/10 rounded-lg hover:bg-primary/20 transition-colors">
+                <i class="ri-youtube-fill text-primary"></i>
+              </a>
+              <a href="#"
+                class="w-10 h-10 flex items-center justify-center bg-primary/10 rounded-lg hover:bg-primary/20 transition-colors">
+                <i class="ri-instagram-fill text-primary"></i>
+              </a>
+              <a href="#"
+                class="w-10 h-10 flex items-center justify-center bg-primary/10 rounded-lg hover:bg-primary/20 transition-colors">
+                <i class="ri-user-fill text-primary"></i>
               </a>
             </div>
           </div>
@@ -718,7 +786,7 @@
     </div>
     <div class="max-w-7xl mx-auto px-6 relative">
       <h2 class="text-3xl font-bold mb-16 text-center">Latest Blog Posts</h2>
-      <div class="grid grid-cols-3 gap-8">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         <div class="bg-gray-800 rounded-lg p-6 border border-gray-700 hover:border-primary transition-colors">
           <div class="text-primary mb-4">March 1, 2025</div>
           <h3 class="text-xl font-semibold mb-3">
@@ -770,6 +838,12 @@
     </div>
   </footer>
   <script>
+    document
+      .getElementById("mobileMenuButton")
+      .addEventListener("click", function () {
+        const mobileMenu = document.getElementById("mobileMenu");
+        mobileMenu.classList.toggle("hidden");
+      });
     document.getElementById("themeToggle").addEventListener("click", function () {
       if (localStorage.theme === "dark") {
         localStorage.theme = "light";
@@ -777,6 +851,24 @@
       } else {
         localStorage.theme = "dark";
         document.documentElement.classList.add("dark");
+      }
+    });
+    // Close mobile menu when clicking outside
+    document.addEventListener("click", function (event) {
+      const mobileMenu = document.getElementById("mobileMenu");
+      const mobileMenuButton = document.getElementById("mobileMenuButton");
+      if (
+        !mobileMenuButton.contains(event.target) &&
+        !mobileMenu.contains(event.target)
+      ) {
+        mobileMenu.classList.add("hidden");
+      }
+    });
+    // Close mobile menu when window is resized to larger screen
+    window.addEventListener("resize", function () {
+      if (window.innerWidth >= 768) {
+        // md breakpoint
+        document.getElementById("mobileMenu").classList.add("hidden");
       }
     });
     document.getElementById("contactForm").addEventListener("submit", function (e) {
