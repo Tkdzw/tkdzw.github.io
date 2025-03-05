@@ -1,566 +1,422 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <script>
-      function setTheme() {
-        if (
-          localStorage.theme === "dark" ||
-          (!("theme" in localStorage) &&
-            window.matchMedia("(prefers-color-scheme: dark)").matches)
-        ) {
-          document.documentElement.classList.add("dark");
-        } else {
-          document.documentElement.classList.remove("dark");
-        }
-      }
-      setTheme();
-    </script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>John Anderson - Full Stack Developer</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              primary: "#0EA5E9",
-              secondary: "#4B5563",
-            },
-            borderRadius: {
-              none: "0px",
-              sm: "4px",
-              DEFAULT: "8px",
-              md: "12px",
-              lg: "16px",
-              xl: "20px",
-              "2xl": "24px",
-              "3xl": "32px",
-              full: "9999px",
-              button: "8px",
-            },
-          },
-        },
-      };
-    </script>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
-      rel="stylesheet"
-    />
-    <style>
-      :where([class^="ri-"])::before { content: "\f3c2"; }
-      body { font-family: 'Inter', sans-serif; }
-      .project-card:hover .project-overlay { opacity: 1; }
-      .social-icon:hover { transform: translateY(-2px); }
-    </style>
-  </head>
-  <body
-    class="bg-gray-900 dark:bg-gray-900 bg-white min-h-screen text-gray-900 dark:text-gray-100 transition-colors duration-300"
-  >
-    <button
-      id="themeToggle"
-      class="fixed top-4 right-4 z-50 w-10 h-10 flex items-center justify-center bg-gray-800 dark:bg-gray-700 rounded-lg hover:bg-gray-700 dark:hover:bg-gray-600 transition-colors"
-    >
-      <i class="ri-sun-line dark:hidden text-white"></i>
-      <i class="ri-moon-line hidden dark:block text-white"></i>
-    </button>
-    <nav
-      class="fixed top-0 left-0 right-0 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md z-50 border-b border-gray-200 dark:border-gray-800"
-    >
-      <div class="max-w-7xl mx-auto px-6">
-        <div class="flex items-center justify-between h-16">
-          <div class="text-2xl font-bold text-primary">AC</div>
-          <div class="flex items-center space-x-8">
-            <a
-              href="#home"
-              class="text-gray-300 hover:text-primary transition-colors"
-              >Home</a
-            >
-            <a
-              href="#skills"
-              class="text-gray-300 hover:text-primary transition-colors"
-              >Skills</a
-            >
-            <a
-              href="#projects"
-              class="text-gray-300 hover:text-primary transition-colors"
-              >Projects</a
-            >
-            <a
-              href="#contact"
-              class="text-gray-300 hover:text-primary transition-colors"
-              >Contact</a
-            >
-          </div>
-        </div>
-      </div>
-    </nav>
-    <section id="home" class="pt-32 pb-20 relative overflow-hidden">
-      <div
-        class="absolute inset-0 bg-[url('https://public.readdy.ai/ai/img_res/b7f5922b87412552940dadfe84bf0031.jpg')] bg-cover opacity-10"
-      ></div>
-      <div class="max-w-7xl mx-auto px-6 relative">
-        <div class="grid grid-cols-12 gap-12 items-center">
-          <div class="col-span-7">
-            <h1 class="text-5xl font-bold mb-6">Hi, I'm Asher T Chiwashira</h1>
-            <h2 class="text-2xl text-gray-400 mb-8">
-              Full Stack Developer & DevOps Engineer
-            </h2>
-            <p class="text-lg text-gray-400 mb-10 leading-relaxed">
-              Passionate about creating scalable web applications and exploring
-              the frontiers of AI technology. With 5+ years of experience in
-              full-stack development, I specialize in building robust solutions
-              that drive business growth.
-            </p>
-            <div class="flex items-center space-x-6">
-              <button
-                class="bg-primary text-white px-8 py-3 !rounded-button font-medium hover:bg-primary/90 transition-colors cursor-pointer"
-              >
-                Download Resume
-              </button>
-              <button
-                class="border border-gray-200 px-8 py-3 !rounded-button font-medium hover:bg-gray-50 transition-colors cursor-pointer"
-              >
-                View Projects
-              </button>
-            </div>
-          </div>
-          <div class="col-span-5">
-            <img
-              src="https://public.readdy.ai/ai/img_res/4f29da1e7936044771726c162dfeec73.jpg"
-              alt="John Anderson"
-              class="w-full h-auto rounded-full shadow-2xl"
-            />
-          </div>
-        </div>
-      </div>
-    </section>
-    <section id="skills" class="py-20 bg-gray-100 dark:bg-gray-800">
-      <div class="max-w-7xl mx-auto px-6">
-        <h2 class="text-3xl font-bold mb-16 text-center">
-          Technical Expertise
-        </h2>
-        <div class="grid grid-cols-4 gap-8">
-          <div
-            class="bg-gray-800 p-8 rounded-lg shadow-sm border border-gray-700 transition-all duration-300 hover:bg-gray-700 hover:border-primary hover:scale-105 hover:shadow-xl"
-          >
-            <div
-              class="w-12 h-12 flex items-center justify-center bg-primary/10 rounded-lg mb-6 transition-colors group-hover:bg-primary/20"
-            >
-              <i class="ri-code-line text-primary text-2xl"></i>
-            </div>
-            <h3 class="text-xl font-semibold mb-4">Software Development</h3>
-            <ul class="space-y-4">
-              <li class="flex items-center">
-                <i class="ri-checkbox-circle-line text-primary mr-2"></i>
-                <span>Full Stack Development</span>
-              </li>
-              <li class="flex items-center">
-                <i class="ri-checkbox-circle-line text-primary mr-2"></i>
-                <span>Microservices Architecture</span>
-              </li>
-              <li class="flex items-center">
-                <i class="ri-checkbox-circle-line text-primary mr-2"></i>
-                <span>Cloud Native Applications</span>
-              </li>
-            </ul>
-          </div>
-          <div
-            class="bg-gray-800 p-8 rounded-lg shadow-sm border border-gray-700 transition-all duration-300 hover:bg-gray-700 hover:border-primary hover:scale-105 hover:shadow-xl"
-          >
-            <div
-              class="w-12 h-12 flex items-center justify-center bg-primary/10 rounded-lg mb-6 transition-colors group-hover:bg-primary/20"
-            >
-              <i class="ri-api-line text-primary text-2xl"></i>
-            </div>
-            <h3 class="text-xl font-semibold mb-4">API Development</h3>
-            <ul class="space-y-4">
-              <li class="flex items-center">
-                <i class="ri-checkbox-circle-line text-primary mr-2"></i>
-                <span>RESTful APIs</span>
-              </li>
-              <li class="flex items-center">
-                <i class="ri-checkbox-circle-line text-primary mr-2"></i>
-                <span>GraphQL</span>
-              </li>
-              <li class="flex items-center">
-                <i class="ri-checkbox-circle-line text-primary mr-2"></i>
-                <span>API Gateway Integration</span>
-              </li>
-            </ul>
-          </div>
-          <div
-            class="bg-gray-800 p-8 rounded-lg shadow-sm border border-gray-700 transition-all duration-300 hover:bg-gray-700 hover:border-primary hover:scale-105 hover:shadow-xl"
-          >
-            <div
-              class="w-12 h-12 flex items-center justify-center bg-primary/10 rounded-lg mb-6 transition-colors group-hover:bg-primary/20"
-            >
-              <i class="ri-cloud-line text-primary text-2xl"></i>
-            </div>
-            <h3 class="text-xl font-semibold mb-4">DevOps</h3>
-            <ul class="space-y-4">
-              <li class="flex items-center">
-                <i class="ri-checkbox-circle-line text-primary mr-2"></i>
-                <span>CI/CD Pipeline</span>
-              </li>
-              <li class="flex items-center">
-                <i class="ri-checkbox-circle-line text-primary mr-2"></i>
-                <span>Docker & Kubernetes</span>
-              </li>
-              <li class="flex items-center">
-                <i class="ri-checkbox-circle-line text-primary mr-2"></i>
-                <span>Infrastructure as Code</span>
-              </li>
-            </ul>
-          </div>
-          <div
-            class="bg-gray-800 p-8 rounded-lg shadow-sm border border-gray-700 transition-all duration-300 hover:bg-gray-700 hover:border-primary hover:scale-105 hover:shadow-xl"
-          >
-            <div
-              class="w-12 h-12 flex items-center justify-center bg-primary/10 rounded-lg mb-6 transition-colors group-hover:bg-primary/20"
-            >
-              <i class="ri-database-2-line text-primary text-2xl"></i>
-            </div>
-            <h3 class="text-xl font-semibold mb-4">Backend Development</h3>
-            <ul class="space-y-4">
-              <li class="flex items-center">
-                <i class="ri-checkbox-circle-line text-primary mr-2"></i>
-                <span>Node.js & Python</span>
-              </li>
-              <li class="flex items-center">
-                <i class="ri-checkbox-circle-line text-primary mr-2"></i>
-                <span>Database Design</span>
-              </li>
-              <li class="flex items-center">
-                <i class="ri-checkbox-circle-line text-primary mr-2"></i>
-                <span>Server Architecture</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section id="projects" class="py-20">
-      <div class="max-w-7xl mx-auto px-6">
-        <h2 class="text-3xl font-bold mb-16 text-center">Featured Projects</h2>
-        <div class="grid grid-cols-2 gap-8">
-          <div class="group relative rounded-lg overflow-hidden shadow-sm">
-            <img
-              src="https://public.readdy.ai/ai/img_res/20757ad35c3890b3f59810233708f8ac.jpg"
-              alt="Project 1"
-              class="w-full h-[300px] object-cover"
-            />
-            <div
-              class="absolute inset-0 bg-primary/90 opacity-0 group-hover:opacity-100 transition-opacity p-6 flex flex-col justify-between"
-            >
-              <div>
-                <h3 class="text-xl font-semibold text-white mb-2">
-                  Analytics Dashboard
-                </h3>
-                <p class="text-white/90">
-                  A real-time analytics dashboard built with Angular and
-                  Firebase, featuring interactive data visualization.
-                </p>
-              </div>
-              <div class="flex flex-wrap gap-2">
-                <span
-                  class="px-3 py-1 bg-white/20 rounded-full text-sm text-white"
-                  >Angular</span
-                >
-                <span
-                  class="px-3 py-1 bg-white/20 rounded-full text-sm text-white"
-                  >Firebase</span
-                >
-                <span
-                  class="px-3 py-1 bg-white/20 rounded-full text-sm text-white"
-                  >D3.js</span
-                >
-              </div>
-            </div>
-          </div>
-          <div class="group relative rounded-lg overflow-hidden shadow-sm">
-            <img
-              src="https://public.readdy.ai/ai/img_res/3f4fe3c1c135efe11c4151173f8a260c.jpg"
-              alt="Project 2"
-              class="w-full h-[300px] object-cover"
-            />
-            <div
-              class="absolute inset-0 bg-primary/90 opacity-0 group-hover:opacity-100 transition-opacity p-6 flex flex-col justify-between"
-            >
-              <div>
-                <h3 class="text-xl font-semibold text-white mb-2">
-                  E-commerce Platform
-                </h3>
-                <p class="text-white/90">
-                  A full-featured e-commerce platform with real-time inventory
-                  management and payment integration.
-                </p>
-              </div>
-              <div class="flex flex-wrap gap-2">
-                <span
-                  class="px-3 py-1 bg-white/20 rounded-full text-sm text-white"
-                  >React</span
-                >
-                <span
-                  class="px-3 py-1 bg-white/20 rounded-full text-sm text-white"
-                  >Node.js</span
-                >
-                <span
-                  class="px-3 py-1 bg-white/20 rounded-full text-sm text-white"
-                  >Stripe</span
-                >
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section
-      id="contact"
-      class="py-20 bg-gray-100 dark:bg-gray-800 relative overflow-hidden"
-    >
-      <div class="absolute inset-0 pointer-events-none">
-        <i
-          class="ri-html5-line text-gray-700/10 text-6xl absolute top-20 left-[10%]"
-        ></i>
-        <i
-          class="ri-css3-line text-gray-700/10 text-7xl absolute top-40 right-[15%]"
-        ></i>
-        <i
-          class="ri-javascript-line text-gray-700/10 text-5xl absolute bottom-32 left-[20%]"
-        ></i>
-        <i
-          class="ri-reactjs-line text-gray-700/10 text-8xl absolute top-1/3 left-[30%]"
-        ></i>
-        <i
-          class="ri-vuejs-line text-gray-700/10 text-6xl absolute bottom-40 right-[25%]"
-        ></i>
-        <i
-          class="ri-angular-line text-gray-700/10 text-7xl absolute top-1/4 right-[35%]"
-        ></i>
-        <i
-          class="ri-nodejs-line text-gray-700/10 text-5xl absolute bottom-20 left-[40%]"
-        ></i>
-        <i
-          class="ri-python-line text-gray-700/10 text-6xl absolute top-32 right-[18%]"
-        ></i>
-        <i
-          class="ri-database-2-line text-gray-700/10 text-7xl absolute bottom-24 right-[28%]"
-        ></i>
-        <i
-          class="ri-code-s-slash-line text-gray-700/10 text-5xl absolute top-1/2 left-[25%]"
-        ></i>
-      </div>
-      <div class="max-w-7xl mx-auto px-6">
-        <h2 class="text-3xl font-bold mb-16 text-center">Get in Touch</h2>
-        <div class="grid grid-cols-2 gap-12">
-          <div
-            class="bg-gray-800 p-8 rounded-lg shadow-sm border border-gray-700"
-          >
-            <form id="contactForm" class="space-y-6">
-              <div>
-                <label class="block text-sm font-medium text-gray-300 mb-2"
-                  >Name</label
-                >
-                <input
-                  type="text"
-                  class="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded focus:outline-none focus:border-primary text-white"
-                  required
-                />
-              </div>
-              <div>
-                <label class="block text-sm font-medium text-gray-300 mb-2"
-                  >Email</label
-                >
-                <input
-                  type="email"
-                  class="w-full px-4 py-2 bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded focus:outline-none focus:border-primary text-gray-900 dark:text-white"
-                  required
-                />
-              </div>
-              <div>
-                <label class="block text-sm font-medium text-gray-300 mb-2"
-                  >Message</label
-                >
-                <textarea
-                  class="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded focus:outline-none focus:border-primary h-32 text-white"
-                  required
-                ></textarea>
-              </div>
-              <button
-                type="submit"
-                class="w-full bg-primary text-white px-6 py-3 !rounded-button font-medium hover:bg-primary/90 transition-colors cursor-pointer"
-              >
-                Send Message
-              </button>
-            </form>
-          </div>
-          <div
-            class="bg-gray-800 p-8 rounded-lg shadow-sm border border-gray-700"
-          >
-            <h3 class="text-xl font-semibold mb-6">Connect With Me</h3>
-            <div class="space-y-6">
-              <div class="flex items-center">
-                <div
-                  class="w-10 h-10 flex items-center justify-center bg-primary/10 rounded-lg mr-4"
-                >
-                  <i class="ri-mail-line text-primary"></i>
-                </div>
-                <div>
-                  <div class="text-sm text-gray-500">Email</div>
-                  <div class="font-medium">asher.chiwashira@example.com</div>
-                </div>
-              </div>
-              <div class="flex items-center">
-                <div
-                  class="w-10 h-10 flex items-center justify-center bg-primary/10 rounded-lg mr-4"
-                >
-                  <i class="ri-map-pin-line text-primary"></i>
-                </div>
-                <div>
-                  <div class="text-sm text-gray-500">Location</div>
-                  <div class="font-medium">San Francisco, CA</div>
-                </div>
-              </div>
-              <div class="flex items-center space-x-4 mt-8">
-                <a
-                  href="#"
-                  class="w-10 h-10 flex items-center justify-center bg-primary/10 rounded-lg hover:bg-primary/20 transition-colors"
-                >
-                  <i class="ri-linkedin-fill text-primary"></i>
-                </a>
-                <a
-                  href="#"
-                  class="w-10 h-10 flex items-center justify-center bg-primary/10 rounded-lg hover:bg-primary/20 transition-colors"
-                >
-                  <i class="ri-github-fill text-primary"></i>
-                </a>
-                <a
-                  href="#"
-                  class="w-10 h-10 flex items-center justify-center bg-primary/10 rounded-lg hover:bg-primary/20 transition-colors"
-                >
-                  <i class="ri-twitter-fill text-primary"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="py-20 relative overflow-hidden">
-      <div
-        class="absolute inset-0 bg-[url('https://public.readdy.ai/ai/img_res/f86a648d08c1fbf60ca46068aae0f8b0.jpg')] bg-cover opacity-10"
-      ></div>
-      <div class="max-w-7xl mx-auto px-6 relative">
-        <h2 class="text-3xl font-bold mb-16 text-center">Latest Blog Posts</h2>
-        <div class="grid grid-cols-3 gap-8">
-          <div
-            class="bg-gray-800 rounded-lg p-6 border border-gray-700 hover:border-primary transition-colors"
-          >
-            <div class="text-primary mb-4">March 1, 2025</div>
-            <h3 class="text-xl font-semibold mb-3">
-              Building Scalable Microservices Architecture
-            </h3>
-            <p class="text-gray-400 mb-4">
-              Explore the best practices for designing and implementing
-              microservices architecture that can handle millions of requests.
-            </p>
-            <div class="flex items-center space-x-3">
-              <span class="px-3 py-1 bg-gray-700 rounded-full text-sm"
-                >Architecture</span
-              >
-              <span class="px-3 py-1 bg-gray-700 rounded-full text-sm"
-                >Microservices</span
-              >
-            </div>
-          </div>
-          <div
-            class="bg-gray-800 rounded-lg p-6 border border-gray-700 hover:border-primary transition-colors"
-          >
-            <div class="text-primary mb-4">February 25, 2025</div>
-            <h3 class="text-xl font-semibold mb-3">
-              Advanced TypeScript Patterns for React
-            </h3>
-            <p class="text-gray-400 mb-4">
-              Deep dive into advanced TypeScript patterns and techniques to
-              build type-safe React applications.
-            </p>
-            <div class="flex items-center space-x-3">
-              <span class="px-3 py-1 bg-gray-700 rounded-full text-sm"
-                >TypeScript</span
-              >
-              <span class="px-3 py-1 bg-gray-700 rounded-full text-sm"
-                >React</span
-              >
-            </div>
-          </div>
-          <div
-            class="bg-gray-800 rounded-lg p-6 border border-gray-700 hover:border-primary transition-colors"
-          >
-            <div class="text-primary mb-4">February 18, 2025</div>
-            <h3 class="text-xl font-semibold mb-3">
-              CI/CD Pipeline Optimization Tips
-            </h3>
-            <p class="text-gray-400 mb-4">
-              Learn how to optimize your CI/CD pipeline for faster deployments
-              and better development workflow.
-            </p>
-            <div class="flex items-center space-x-3">
-              <span class="px-3 py-1 bg-gray-700 rounded-full text-sm"
-                >DevOps</span
-              >
-              <span class="px-3 py-1 bg-gray-700 rounded-full text-sm"
-                >CI/CD</span
-              >
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <footer class="py-8 border-t border-gray-200 dark:border-gray-800">
-      <div class="max-w-7xl mx-auto px-6 text-center text-gray-400">
-        © 2025 Asher T Chiwashira. All rights reserved.
-      </div>
-    </footer>
-    <script>
-      document.getElementById("themeToggle").addEventListener("click", function () {
-        if (localStorage.theme === "dark") {
-          localStorage.theme = "light";
-          document.documentElement.classList.remove("dark");
-        } else {
-          localStorage.theme = "dark";
-          document.documentElement.classList.add("dark");
-        }
-      });
-      document.getElementById("contactForm").addEventListener("submit", function (e) {
-        e.preventDefault();
-        const formData = new FormData(e.target);
-        const data = Object.fromEntries(formData.entries());
-        console.log("Form submitted:", data);
-        const notification = document.createElement("div");
-        notification.className =
-          "fixed bottom-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg";
-        notification.textContent = "Message sent successfully!";
-        document.body.appendChild(notification);
-        setTimeout(() => {
-          notification.remove();
-        }, 3000);
-        e.target.reset();
-      });
-      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-        anchor.addEventListener("click", function (e) {
-          e.preventDefault();
-          document.querySelector(this.getAttribute("href")).scrollIntoView({
-            behavior: "smooth",
-          });
-        });
-      });
-    </script>
-  </body>
+<head>
+<meta charset="UTF-8">
+<script>
+function setTheme() {
+if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+document.documentElement.classList.add('dark')
+} else {
+document.documentElement.classList.remove('dark')
+}
+}
+setTheme()
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Asher Chiwashira - Full Stack Developer</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+theme: {
+extend: {
+colors: {
+primary: '#0EA5E9',
+secondary: '#4B5563'
+},
+borderRadius: {
+'none': '0px',
+'sm': '4px',
+DEFAULT: '8px',
+'md': '12px',
+'lg': '16px',
+'xl': '20px',
+'2xl': '24px',
+'3xl': '32px',
+'full': '9999px',
+'button': '8px'
+}
+}
+}
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body { font-family: 'Inter', sans-serif; }
+.project-card:hover .project-overlay { opacity: 1; }
+.social-icon:hover { transform: translateY(-2px); }
+</style>
+</head>
+<body class="bg-gray-900 dark:bg-gray-900 bg-white min-h-screen text-gray-900 dark:text-gray-100 transition-colors duration-300">
+<button id="themeToggle" class="fixed top-4 right-4 z-50 w-10 h-10 flex items-center justify-center bg-gray-800 dark:bg-gray-700 rounded-lg hover:bg-gray-700 dark:hover:bg-gray-600 transition-colors">
+<i class="ri-sun-line dark:hidden text-white"></i>
+<i class="ri-moon-line hidden dark:block text-white"></i>
+</button>
+<nav class="fixed top-0 left-0 right-0 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md z-50 border-b border-gray-200 dark:border-gray-800">
+<div class="max-w-7xl mx-auto px-6">
+<div class="flex items-center justify-between h-16">
+<div class="text-2xl font-bold text-primary">AC</div>
+<div class="flex items-center space-x-8">
+<a href="#home" class="text-gray-300 hover:text-primary transition-colors">Home</a>
+<a href="#skills" class="text-gray-300 hover:text-primary transition-colors">Skills</a>
+<a href="#projects" class="text-gray-300 hover:text-primary transition-colors">Projects</a>
+<a href="#contact" class="text-gray-300 hover:text-primary transition-colors">Contact</a>
+</div>
+</div>
+</div>
+</nav>
+<section id="home" class="pt-32 pb-20 relative overflow-hidden">
+<div class="absolute inset-0 bg-[url('https://public.readdy.ai/ai/img_res/b7f5922b87412552940dadfe84bf0031.jpg')] bg-cover opacity-10"></div>
+<div class="max-w-7xl mx-auto px-6 relative">
+<div class="grid grid-cols-12 gap-12 items-center">
+<div class="col-span-7">
+<h1 class="text-5xl font-bold mb-6">Hi, I'm Asher T Chiwashira</h1>
+<h2 class="text-2xl text-gray-400 mb-8">Full Stack Developer & DevOps Engineer</h2>
+<p class="text-lg text-gray-400 mb-10 leading-relaxed">Passionate about creating scalable web applications and exploring the frontiers of AI technology. With 5+ years of experience in full-stack development, I specialize in building robust solutions that drive business growth.</p>
+<div class="flex items-center space-x-6">
+<button class="bg-primary text-white px-8 py-3 !rounded-button font-medium hover:bg-primary/90 transition-colors cursor-pointer">Download Resume</button>
+<button class="border border-gray-200 px-8 py-3 !rounded-button font-medium hover:bg-gray-50 transition-colors cursor-pointer">View Projects</button>
+</div>
+</div>
+<div class="col-span-5">
+<img src="https://public.readdy.ai/ai/img_res/4f29da1e7936044771726c162dfeec73.jpg" alt="John Anderson" class="w-full h-auto rounded-full shadow-2xl">
+</div>
+</div>
+</div>
+</section>
+<section id="skills" class="py-20 bg-gray-100 dark:bg-gray-800">
+<div class="max-w-7xl mx-auto px-6">
+<h2 class="text-3xl font-bold mb-16 text-center">Technical Expertise</h2>
+<div class="grid grid-cols-4 gap-8">
+<div class="bg-gray-800 p-8 rounded-lg shadow-sm border border-gray-700 transition-all duration-300 hover:bg-gray-700 hover:border-primary hover:scale-105 hover:shadow-xl">
+<div class="w-12 h-12 flex items-center justify-center bg-primary/10 rounded-lg mb-6 transition-colors group-hover:bg-primary/20">
+<i class="ri-code-line text-primary text-2xl"></i>
+</div>
+<h3 class="text-xl font-semibold mb-4">Software Development</h3>
+<ul class="space-y-4">
+<li class="flex items-center">
+<i class="ri-checkbox-circle-line text-primary mr-2"></i>
+<span>Full Stack Development</span>
+</li>
+<li class="flex items-center">
+<i class="ri-checkbox-circle-line text-primary mr-2"></i>
+<span>Microservices Architecture</span>
+</li>
+<li class="flex items-center">
+<i class="ri-checkbox-circle-line text-primary mr-2"></i>
+<span>Cloud Native Applications</span>
+</li>
+</ul>
+</div>
+<div class="bg-gray-800 p-8 rounded-lg shadow-sm border border-gray-700 transition-all duration-300 hover:bg-gray-700 hover:border-primary hover:scale-105 hover:shadow-xl">
+<div class="w-12 h-12 flex items-center justify-center bg-primary/10 rounded-lg mb-6 transition-colors group-hover:bg-primary/20">
+<i class="ri-api-line text-primary text-2xl"></i>
+</div>
+<h3 class="text-xl font-semibold mb-4">API Development</h3>
+<ul class="space-y-4">
+<li class="flex items-center">
+<i class="ri-checkbox-circle-line text-primary mr-2"></i>
+<span>RESTful APIs</span>
+</li>
+<li class="flex items-center">
+<i class="ri-checkbox-circle-line text-primary mr-2"></i>
+<span>GraphQL</span>
+</li>
+<li class="flex items-center">
+<i class="ri-checkbox-circle-line text-primary mr-2"></i>
+<span>API Gateway Integration</span>
+</li>
+</ul>
+</div>
+<div class="bg-gray-800 p-8 rounded-lg shadow-sm border border-gray-700 transition-all duration-300 hover:bg-gray-700 hover:border-primary hover:scale-105 hover:shadow-xl">
+<div class="w-12 h-12 flex items-center justify-center bg-primary/10 rounded-lg mb-6 transition-colors group-hover:bg-primary/20">
+<i class="ri-cloud-line text-primary text-2xl"></i>
+</div>
+<h3 class="text-xl font-semibold mb-4">DevOps</h3>
+<ul class="space-y-4">
+<li class="flex items-center">
+<i class="ri-checkbox-circle-line text-primary mr-2"></i>
+<span>CI/CD Pipeline</span>
+</li>
+<li class="flex items-center">
+<i class="ri-checkbox-circle-line text-primary mr-2"></i>
+<span>Docker & Kubernetes</span>
+</li>
+<li class="flex items-center">
+<i class="ri-checkbox-circle-line text-primary mr-2"></i>
+<span>Infrastructure as Code</span>
+</li>
+</ul>
+</div>
+<div class="bg-gray-800 p-8 rounded-lg shadow-sm border border-gray-700 transition-all duration-300 hover:bg-gray-700 hover:border-primary hover:scale-105 hover:shadow-xl">
+<div class="w-12 h-12 flex items-center justify-center bg-primary/10 rounded-lg mb-6 transition-colors group-hover:bg-primary/20">
+<i class="ri-database-2-line text-primary text-2xl"></i>
+</div>
+<h3 class="text-xl font-semibold mb-4">Backend Development</h3>
+<ul class="space-y-4">
+<li class="flex items-center">
+<i class="ri-checkbox-circle-line text-primary mr-2"></i>
+<span>Node.js & Python</span>
+</li>
+<li class="flex items-center">
+<i class="ri-checkbox-circle-line text-primary mr-2"></i>
+<span>Database Design</span>
+</li>
+<li class="flex items-center">
+<i class="ri-checkbox-circle-line text-primary mr-2"></i>
+<span>Server Architecture</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="projects" class="py-20">
+<div class="max-w-7xl mx-auto px-6">
+<h2 class="text-3xl font-bold mb-16 text-center">Featured Projects</h2>
+<div class="grid grid-cols-2 gap-8">
+<div class="group relative rounded-lg overflow-hidden shadow-sm">
+<img src="https://public.readdy.ai/ai/img_res/20757ad35c3890b3f59810233708f8ac.jpg" alt="Project 1" class="w-full h-[300px] object-cover">
+<div class="absolute inset-0 bg-primary/90 opacity-0 group-hover:opacity-100 transition-opacity p-6 flex flex-col justify-between">
+<div>
+<h3 class="text-xl font-semibold text-white mb-2">Analytics Dashboard</h3>
+<p class="text-white/90">A real-time analytics dashboard built with Angular and Firebase, featuring interactive data visualization.</p>
+</div>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-white/20 rounded-full text-sm text-white">Angular</span>
+<span class="px-3 py-1 bg-white/20 rounded-full text-sm text-white">Firebase</span>
+<span class="px-3 py-1 bg-white/20 rounded-full text-sm text-white">D3.js</span>
+</div>
+</div>
+</div>
+<div class="group relative rounded-lg overflow-hidden shadow-sm">
+<img src="https://public.readdy.ai/ai/img_res/3f4fe3c1c135efe11c4151173f8a260c.jpg" alt="Project 2" class="w-full h-[300px] object-cover">
+<div class="absolute inset-0 bg-primary/90 opacity-0 group-hover:opacity-100 transition-opacity p-6 flex flex-col justify-between">
+<div>
+<h3 class="text-xl font-semibold text-white mb-2">E-commerce Platform</h3>
+<p class="text-white/90">A full-featured e-commerce platform with real-time inventory management and payment integration.</p>
+</div>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-white/20 rounded-full text-sm text-white">React</span>
+<span class="px-3 py-1 bg-white/20 rounded-full text-sm text-white">Node.js</span>
+<span class="px-3 py-1 bg-white/20 rounded-full text-sm text-white">Stripe</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="contact" class="py-20 bg-gray-100 dark:bg-gray-800 relative overflow-hidden">
+<div class="absolute inset-0 pointer-events-none">
+<i class="ri-html5-line text-gray-700/10 text-6xl absolute floating-icon" style="animation: float1 20s infinite linear;top:20px;left:10%;"></i>
+<i class="ri-css3-line text-gray-700/10 text-7xl absolute floating-icon" style="animation: float2 25s infinite linear;top:40px;right:15%;"></i>
+<i class="ri-javascript-line text-gray-700/10 text-5xl absolute floating-icon" style="animation: float3 22s infinite linear;bottom:32px;left:20%;"></i>
+<i class="ri-reactjs-line text-gray-700/10 text-8xl absolute floating-icon" style="animation: float4 28s infinite linear;top:33%;left:30%;"></i>
+<i class="ri-vuejs-line text-gray-700/10 text-6xl absolute floating-icon" style="animation: float5 24s infinite linear;bottom:40px;right:25%;"></i>
+<i class="ri-angular-line text-gray-700/10 text-7xl absolute floating-icon" style="animation: float6 26s infinite linear;top:25%;right:35%;"></i>
+<i class="ri-nodejs-line text-gray-700/10 text-5xl absolute floating-icon" style="animation: float7 23s infinite linear;bottom:20px;left:40%;"></i>
+<i class="ri-python-line text-gray-700/10 text-6xl absolute floating-icon" style="animation: float8 27s infinite linear;top:32px;right:18%;"></i>
+<i class="ri-database-2-line text-gray-700/10 text-7xl absolute floating-icon" style="animation: float9 21s infinite linear;bottom:24px;right:28%;"></i>
+<i class="ri-code-s-slash-line text-gray-700/10 text-5xl absolute floating-icon" style="animation: float10 29s infinite linear;top:50%;left:25%;"></i>
+</div>
+<style>
+@keyframes float1 { 
+  0% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(20px, 20px) rotate(90deg); }
+  50% { transform: translate(0, 40px) rotate(180deg); }
+  75% { transform: translate(-20px, 20px) rotate(270deg); }
+  100% { transform: translate(0, 0) rotate(360deg); }
+}
+@keyframes float2 {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  33% { transform: translate(-30px, 30px) rotate(120deg); }
+  66% { transform: translate(30px, -30px) rotate(240deg); }
+  100% { transform: translate(0, 0) rotate(360deg); }
+}
+@keyframes float3 {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(25px, -25px) rotate(180deg); }
+  100% { transform: translate(0, 0) rotate(360deg); }
+}
+@keyframes float4 {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(-15px, 15px) rotate(90deg); }
+  50% { transform: translate(-30px, 0) rotate(180deg); }
+  75% { transform: translate(-15px, -15px) rotate(270deg); }
+  100% { transform: translate(0, 0) rotate(360deg); }
+}
+@keyframes float5 {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  33% { transform: translate(20px, -20px) rotate(120deg); }
+  66% { transform: translate(-20px, -20px) rotate(240deg); }
+  100% { transform: translate(0, 0) rotate(360deg); }
+}
+@keyframes float6 {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(-35px, 35px) rotate(180deg); }
+  100% { transform: translate(0, 0) rotate(360deg); }
+}
+@keyframes float7 {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(25px, 25px) rotate(90deg); }
+  50% { transform: translate(50px, 0) rotate(180deg); }
+  75% { transform: translate(25px, -25px) rotate(270deg); }
+  100% { transform: translate(0, 0) rotate(360deg); }
+}
+@keyframes float8 {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  33% { transform: translate(-40px, 40px) rotate(120deg); }
+  66% { transform: translate(40px, -40px) rotate(240deg); }
+  100% { transform: translate(0, 0) rotate(360deg); }
+}
+@keyframes float9 {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(30px, -30px) rotate(180deg); }
+  100% { transform: translate(0, 0) rotate(360deg); }
+}
+@keyframes float10 {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(-20px, 20px) rotate(90deg); }
+  50% { transform: translate(-40px, 0) rotate(180deg); }
+  75% { transform: translate(-20px, -20px) rotate(270deg); }
+  100% { transform: translate(0, 0) rotate(360deg); }
+}
+.floating-icon {
+  will-change: transform;
+}
+</style>
+<div class="max-w-7xl mx-auto px-6">
+<h2 class="text-3xl font-bold mb-16 text-center">Get in Touch</h2>
+<div class="grid grid-cols-2 gap-12">
+<div class="bg-gray-800 p-8 rounded-lg shadow-sm border border-gray-700">
+<form id="contactForm" class="space-y-6">
+<div>
+<label class="block text-sm font-medium text-gray-300 mb-2">Name</label>
+<input type="text" class="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded focus:outline-none focus:border-primary text-white" required>
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-300 mb-2">Email</label>
+<input type="email" class="w-full px-4 py-2 bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded focus:outline-none focus:border-primary text-gray-900 dark:text-white" required>
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-300 mb-2">Message</label>
+<textarea class="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded focus:outline-none focus:border-primary h-32 text-white" required></textarea>
+</div>
+<button type="submit" class="w-full bg-primary text-white px-6 py-3 !rounded-button font-medium hover:bg-primary/90 transition-colors cursor-pointer">Send Message</button>
+</form>
+</div>
+<div class="bg-gray-800 p-8 rounded-lg shadow-sm border border-gray-700">
+<h3 class="text-xl font-semibold mb-6">Connect With Me</h3>
+<div class="space-y-6">
+<div class="flex items-center">
+<div class="w-10 h-10 flex items-center justify-center bg-primary/10 rounded-lg mr-4">
+<i class="ri-mail-line text-primary"></i>
+</div>
+<div>
+<div class="text-sm text-gray-500">Email</div>
+<div class="font-medium">asher.chiwashira@example.com</div>
+</div>
+</div>
+<div class="flex items-center">
+<div class="w-10 h-10 flex items-center justify-center bg-primary/10 rounded-lg mr-4">
+<i class="ri-map-pin-line text-primary"></i>
+</div>
+<div>
+<div class="text-sm text-gray-500">Location</div>
+<div class="font-medium">San Francisco, CA</div>
+</div>
+</div>
+<div class="flex items-center space-x-4 mt-8">
+<a href="#" class="w-10 h-10 flex items-center justify-center bg-primary/10 rounded-lg hover:bg-primary/20 transition-colors">
+<i class="ri-linkedin-fill text-primary"></i>
+</a>
+<a href="#" class="w-10 h-10 flex items-center justify-center bg-primary/10 rounded-lg hover:bg-primary/20 transition-colors">
+<i class="ri-github-fill text-primary"></i>
+</a>
+<a href="#" class="w-10 h-10 flex items-center justify-center bg-primary/10 rounded-lg hover:bg-primary/20 transition-colors">
+<i class="ri-twitter-fill text-primary"></i>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-20 relative overflow-hidden">
+<div class="absolute inset-0 bg-[url('https://public.readdy.ai/ai/img_res/f86a648d08c1fbf60ca46068aae0f8b0.jpg')] bg-cover opacity-10"></div>
+<div class="max-w-7xl mx-auto px-6 relative">
+<h2 class="text-3xl font-bold mb-16 text-center">Latest Blog Posts</h2>
+<div class="grid grid-cols-3 gap-8">
+<div class="bg-gray-800 rounded-lg p-6 border border-gray-700 hover:border-primary transition-colors">
+<div class="text-primary mb-4">March 1, 2025</div>
+<h3 class="text-xl font-semibold mb-3">Building Scalable Microservices Architecture</h3>
+<p class="text-gray-400 mb-4">Explore the best practices for designing and implementing microservices architecture that can handle millions of requests.</p>
+<div class="flex items-center space-x-3">
+<span class="px-3 py-1 bg-gray-700 rounded-full text-sm">Architecture</span>
+<span class="px-3 py-1 bg-gray-700 rounded-full text-sm">Microservices</span>
+</div>
+</div>
+<div class="bg-gray-800 rounded-lg p-6 border border-gray-700 hover:border-primary transition-colors">
+<div class="text-primary mb-4">February 25, 2025</div>
+<h3 class="text-xl font-semibold mb-3">Advanced TypeScript Patterns for React</h3>
+<p class="text-gray-400 mb-4">Deep dive into advanced TypeScript patterns and techniques to build type-safe React applications.</p>
+<div class="flex items-center space-x-3">
+<span class="px-3 py-1 bg-gray-700 rounded-full text-sm">TypeScript</span>
+<span class="px-3 py-1 bg-gray-700 rounded-full text-sm">React</span>
+</div>
+</div>
+<div class="bg-gray-800 rounded-lg p-6 border border-gray-700 hover:border-primary transition-colors">
+<div class="text-primary mb-4">February 18, 2025</div>
+<h3 class="text-xl font-semibold mb-3">CI/CD Pipeline Optimization Tips</h3>
+<p class="text-gray-400 mb-4">Learn how to optimize your CI/CD pipeline for faster deployments and better development workflow.</p>
+<div class="flex items-center space-x-3">
+<span class="px-3 py-1 bg-gray-700 rounded-full text-sm">DevOps</span>
+<span class="px-3 py-1 bg-gray-700 rounded-full text-sm">CI/CD</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<footer class="py-8 border-t border-gray-200 dark:border-gray-800">
+<div class="max-w-7xl mx-auto px-6 text-center text-gray-400">
+© 2025 Asher T Chiwashira. All rights reserved.
+</div>
+</footer>
+<script>
+document.getElementById('themeToggle').addEventListener('click', function() {
+if (localStorage.theme === 'dark') {
+localStorage.theme = 'light'
+document.documentElement.classList.remove('dark')
+} else {
+localStorage.theme = 'dark'
+document.documentElement.classList.add('dark')
+}
+})
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+e.preventDefault();
+const formData = new FormData(e.target);
+const data = Object.fromEntries(formData.entries());
+console.log('Form submitted:', data);
+const notification = document.createElement('div');
+notification.className = 'fixed bottom-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg';
+notification.textContent = 'Message sent successfully!';
+document.body.appendChild(notification);
+setTimeout(() => {
+notification.remove();
+}, 3000);
+e.target.reset();
+});
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+anchor.addEventListener('click', function (e) {
+e.preventDefault();
+document.querySelector(this.getAttribute('href')).scrollIntoView({
+behavior: 'smooth'
+});
+});
+});
+</script>
+</body>
 </html>
